@@ -126,18 +126,41 @@
     },
     "mass-rating-source": {
       "oneOf": [
-        { "type": "number", "minimum": 0, "maximum": 10 },
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
         {
           "type": "string",
-          "enum": ["floppy", "lock", "remove", "reset", "unlock"]
+          "enum": [
+            "floppy",
+            "lock",
+            "remove",
+            "reset",
+            "unlock"
+          ]
         },
         {
           "type": "array",
           "uniqueItems": true,
           "items": {
             "oneOf": [
-              { "type": "number", "minimum": 0, "maximum": 10 },
-              { "type": "string", "enum": ["floppy", "lock", "remove", "reset", "unlock"] }
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 10
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "floppy",
+                  "lock",
+                  "remove",
+                  "reset",
+                  "unlock"
+                ]
+              }
             ]
           }
         }
@@ -1154,10 +1177,15 @@
           "format": "uri"
         },
         "token": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
-      "required": ["url"],
+      "required": [
+        "url"
+      ],
       "title": "floppy"
     },
     "gotify-api": {
@@ -2047,7 +2075,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "run_again_delay": {
           "description": "Used to control the number of minutes to delay running run_again collections.\nSet the number of minutes to delay running run_again collections after daily run is finished. For example, if a collection adds items to Sonarr/Radarr, the library can automatically re-run 'X' amount of time later so that any downloaded items are processed.",
@@ -3160,11 +3197,11 @@
                                                                         "tautulli",
                                                                         "tracearr"
                                                                       ]
-                                                                  }
-                                                                },
-                                                                "required": [
-                                                                  "default"
-                                                                ]
+                                                                    }
+                                                                  },
+                                                                  "required": [
+                                                                    "default"
+                                                                  ]
                                                                 },
                                                                 "then": {
                                                                   "properties": {
@@ -4634,16 +4671,31 @@
             "$ref": "#/definitions/file-path"
           },
           {
+            "$ref": "#/definitions/file-path-external-with-template-variables"
+          },
+          {
             "$ref": "#/definitions/folder-path"
+          },
+          {
+            "$ref": "#/definitions/folder-path-external-with-template-variables"
           },
           {
             "$ref": "#/definitions/url-path"
           },
           {
+            "$ref": "#/definitions/url-path-external-with-template-variables"
+          },
+          {
             "$ref": "#/definitions/git-path"
           },
           {
+            "$ref": "#/definitions/git-path-external-with-template-variables"
+          },
+          {
             "$ref": "#/definitions/repo-path"
+          },
+          {
+            "$ref": "#/definitions/repo-path-external-with-template-variables"
           }
         ]
       }
@@ -4668,13 +4720,22 @@
             "$ref": "#/definitions/file-path"
           },
           {
+            "$ref": "#/definitions/file-path-external-with-template-variables"
+          },
+          {
             "$ref": "#/definitions/file-path-collection-with-template-variables"
           },
           {
             "$ref": "#/definitions/folder-path"
           },
           {
+            "$ref": "#/definitions/folder-path-external-with-template-variables"
+          },
+          {
             "$ref": "#/definitions/url-path"
+          },
+          {
+            "$ref": "#/definitions/url-path-external-with-template-variables"
           },
           {
             "$ref": "#/definitions/url-path-collection-with-template-variables"
@@ -4683,10 +4744,16 @@
             "$ref": "#/definitions/git-path"
           },
           {
+            "$ref": "#/definitions/git-path-external-with-template-variables"
+          },
+          {
             "$ref": "#/definitions/git-path-collection-with-template-variables"
           },
           {
             "$ref": "#/definitions/repo-path"
+          },
+          {
+            "$ref": "#/definitions/repo-path-external-with-template-variables"
           },
           {
             "$ref": "#/definitions/repo-path-collection-with-template-variables"
@@ -4714,13 +4781,22 @@
             "$ref": "#/definitions/file-path"
           },
           {
+            "$ref": "#/definitions/file-path-external-with-template-variables"
+          },
+          {
             "$ref": "#/definitions/file-path-overlay-with-template-variables"
           },
           {
             "$ref": "#/definitions/folder-path"
           },
           {
+            "$ref": "#/definitions/folder-path-external-with-template-variables"
+          },
+          {
             "$ref": "#/definitions/url-path"
+          },
+          {
+            "$ref": "#/definitions/url-path-external-with-template-variables"
           },
           {
             "$ref": "#/definitions/url-path-overlay-with-template-variables"
@@ -4729,10 +4805,16 @@
             "$ref": "#/definitions/git-path"
           },
           {
+            "$ref": "#/definitions/git-path-external-with-template-variables"
+          },
+          {
             "$ref": "#/definitions/git-path-overlay-with-template-variables"
           },
           {
             "$ref": "#/definitions/repo-path"
+          },
+          {
+            "$ref": "#/definitions/repo-path-external-with-template-variables"
           },
           {
             "$ref": "#/definitions/repo-path-overlay-with-template-variables"
@@ -5913,13 +5995,27 @@
                   "oneOf": [
                     {
                       "type": "string",
-                      "enum": ["tmdb", "trakt", "tvdb", "plex", "lock", "unlock"]
+                      "enum": [
+                        "tmdb",
+                        "trakt",
+                        "tvdb",
+                        "plex",
+                        "lock",
+                        "unlock"
+                      ]
                     },
                     {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "enum": ["tmdb", "trakt", "tvdb", "plex", "lock", "unlock"]
+                        "enum": [
+                          "tmdb",
+                          "trakt",
+                          "tvdb",
+                          "plex",
+                          "lock",
+                          "unlock"
+                        ]
                       }
                     }
                   ]
@@ -5949,13 +6045,27 @@
                   "oneOf": [
                     {
                       "type": "string",
-                      "enum": ["tmdb", "trakt", "tvdb", "plex", "lock", "unlock"]
+                      "enum": [
+                        "tmdb",
+                        "trakt",
+                        "tvdb",
+                        "plex",
+                        "lock",
+                        "unlock"
+                      ]
                     },
                     {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "enum": ["tmdb", "trakt", "tvdb", "plex", "lock", "unlock"]
+                        "enum": [
+                          "tmdb",
+                          "trakt",
+                          "tvdb",
+                          "plex",
+                          "lock",
+                          "unlock"
+                        ]
                       }
                     }
                   ]
@@ -6001,13 +6111,27 @@
                           "oneOf": [
                             {
                               "type": "string",
-                              "enum": ["tmdb", "trakt", "tvdb", "plex", "lock", "unlock"]
+                              "enum": [
+                                "tmdb",
+                                "trakt",
+                                "tvdb",
+                                "plex",
+                                "lock",
+                                "unlock"
+                              ]
                             },
                             {
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "enum": ["tmdb", "trakt", "tvdb", "plex", "lock", "unlock"]
+                                "enum": [
+                                  "tmdb",
+                                  "trakt",
+                                  "tvdb",
+                                  "plex",
+                                  "lock",
+                                  "unlock"
+                                ]
                               }
                             }
                           ]
@@ -6052,13 +6176,27 @@
                           "oneOf": [
                             {
                               "type": "string",
-                              "enum": ["tmdb", "trakt", "tvdb", "plex", "lock", "unlock"]
+                              "enum": [
+                                "tmdb",
+                                "trakt",
+                                "tvdb",
+                                "plex",
+                                "lock",
+                                "unlock"
+                              ]
                             },
                             {
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "enum": ["tmdb", "trakt", "tvdb", "plex", "lock", "unlock"]
+                                "enum": [
+                                  "tmdb",
+                                  "trakt",
+                                  "tvdb",
+                                  "plex",
+                                  "lock",
+                                  "unlock"
+                                ]
                               }
                             }
                           ]
@@ -6103,13 +6241,27 @@
                           "oneOf": [
                             {
                               "type": "string",
-                              "enum": ["tmdb", "trakt", "tvdb", "plex", "lock", "unlock"]
+                              "enum": [
+                                "tmdb",
+                                "trakt",
+                                "tvdb",
+                                "plex",
+                                "lock",
+                                "unlock"
+                              ]
                             },
                             {
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "enum": ["tmdb", "trakt", "tvdb", "plex", "lock", "unlock"]
+                                "enum": [
+                                  "tmdb",
+                                  "trakt",
+                                  "tvdb",
+                                  "plex",
+                                  "lock",
+                                  "unlock"
+                                ]
                               }
                             }
                           ]
@@ -6143,13 +6295,23 @@
                           "oneOf": [
                             {
                               "type": "string",
-                              "enum": ["tvdb", "plex", "lock", "unlock"]
+                              "enum": [
+                                "tvdb",
+                                "plex",
+                                "lock",
+                                "unlock"
+                              ]
                             },
                             {
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "enum": ["tvdb", "plex", "lock", "unlock"]
+                                "enum": [
+                                  "tvdb",
+                                  "plex",
+                                  "lock",
+                                  "unlock"
+                                ]
                               }
                             }
                           ]
@@ -7247,7 +7409,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -8001,7 +8172,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -8661,7 +8841,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -9272,7 +9461,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -9880,7 +10078,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -10544,7 +10751,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -11224,7 +11440,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -11841,7 +12066,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -12455,7 +12689,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -13165,7 +13408,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -13438,7 +13690,16 @@
             "string",
             "null"
           ],
-          "enum": ["sort_title", "sort_title.desc", "alpha", "alpha.desc", "configured", "configured.desc", "random", null]
+          "enum": [
+            "sort_title",
+            "sort_title.desc",
+            "alpha",
+            "alpha.desc",
+            "configured",
+            "configured.desc",
+            "random",
+            null
+          ]
         },
         "ignore_ids": {
           "oneOf": [
@@ -15046,6 +15307,172 @@
       },
       "required": [],
       "dependentRequired": {}
+    },
+    "external-template-variables": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "file-path-external-with-template-variables": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "schedule": {
+          "type": "string"
+        },
+        "asset_directory": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "template_variables": {
+          "$ref": "#/definitions/external-template-variables"
+        }
+      },
+      "required": [
+        "file"
+      ]
+    },
+    "folder-path-external-with-template-variables": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "folder": {
+          "type": "string"
+        },
+        "schedule": {
+          "type": "string"
+        },
+        "asset_directory": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "template_variables": {
+          "$ref": "#/definitions/external-template-variables"
+        }
+      },
+      "required": [
+        "folder"
+      ]
+    },
+    "url-path-external-with-template-variables": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https?)://"
+        },
+        "schedule": {
+          "type": "string"
+        },
+        "asset_directory": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "template_variables": {
+          "$ref": "#/definitions/external-template-variables"
+        }
+      },
+      "required": [
+        "url"
+      ]
+    },
+    "git-path-external-with-template-variables": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "git": {
+          "type": "string"
+        },
+        "schedule": {
+          "type": "string"
+        },
+        "asset_directory": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "template_variables": {
+          "$ref": "#/definitions/external-template-variables"
+        }
+      },
+      "required": [
+        "git"
+      ]
+    },
+    "repo-path-external-with-template-variables": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "repo": {
+          "type": "string"
+        },
+        "schedule": {
+          "type": "string"
+        },
+        "asset_directory": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "template_variables": {
+          "$ref": "#/definitions/external-template-variables"
+        }
+      },
+      "required": [
+        "repo"
+      ]
     }
   }
 }
